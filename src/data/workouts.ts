@@ -3,6 +3,14 @@ import { db } from "@/db";
 import { workouts, exercises } from "@/db/schema";
 import { eq, and, gte, lt, count } from "drizzle-orm";
 
+export async function createWorkout(
+  userId: string,
+  name: string | null,
+  startedAt: Date
+) {
+  return db.insert(workouts).values({ userId, name, startedAt });
+}
+
 export async function getWorkoutsByUserAndDate(date: Date) {
   const { userId } = await auth();
   if (!userId) return [];
