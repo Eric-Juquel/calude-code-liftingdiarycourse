@@ -26,6 +26,8 @@ IMPORTANT: Before generating any code, always first check the `/docs` directory 
 
 - /docs/ui.md — UI component guidelines and patterns
 - /docs/data-fetching.md — Data fetching rules and patterns
+- /docs/data-mutations.md — Data mutation rules and Server Action patterns
+- /docs/auth.md — Authentication standards (Clerk)
 
 ## Data Fetching
 
