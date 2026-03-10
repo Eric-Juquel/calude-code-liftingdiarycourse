@@ -1,12 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import {
-  ClerkProvider,
-  SignInButton,
-  SignUpButton,
-  Show,
-  UserButton,
-} from "@clerk/nextjs";
+import { ClerkProvider } from "@clerk/nextjs";
+import { HeaderNav } from "./HeaderNav";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -37,23 +32,7 @@ export default function RootLayout({
         <ClerkProvider>
           <header className="flex items-center justify-between px-6 py-4 border-b border-gray-700 bg-gray-900">
             <span className="text-xl font-bold text-white">Lifting Diary</span>
-            <div className="flex items-center gap-3">
-              <Show when="signed-out">
-                <SignInButton mode="modal">
-                  <button className="px-5 py-2 rounded-full border border-gray-500 text-sm font-medium text-gray-200 hover:border-gray-300 hover:text-white transition-all duration-200 cursor-pointer">
-                    Sign In
-                  </button>
-                </SignInButton>
-                <SignUpButton mode="modal">
-                  <button className="px-5 py-2 rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 text-sm font-medium text-white shadow-md hover:shadow-lg hover:from-indigo-600 hover:to-purple-700 active:scale-95 transition-all duration-200 cursor-pointer">
-                    Sign Up
-                  </button>
-                </SignUpButton>
-              </Show>
-              <Show when="signed-in">
-                <UserButton />
-              </Show>
-            </div>
+            <HeaderNav />
           </header>
           {children}
         </ClerkProvider>

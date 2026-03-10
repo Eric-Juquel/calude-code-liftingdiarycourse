@@ -25,11 +25,21 @@ The project is a fresh scaffold (liftingdiarycourse) intended to be built out as
 IMPORTANT: Before generating any code, always first check the `/docs` directory for relevant documentation files. All code generated must align with the patterns, conventions, and specifications defined in those docs.
 
 - /docs/ui.md — UI component guidelines and patterns
+- /docs/data-fetching.md — Data fetching rules and patterns
+
+## Data Fetching
+
+CRITICAL: ALL data fetching MUST be done exclusively via React Server Components. Route handlers, client components, and any other client-side fetching mechanisms are strictly forbidden.
+
+- All database queries MUST live in helper functions inside the `/data` directory.
+- Helper functions MUST use Drizzle ORM. Raw SQL is forbidden.
+- Every query returning user data MUST filter by the authenticated user's ID. Users must never access other users' data.
 
 ## Code generated must follow the conventions outlined in the documentation, including:
 
 - Be Eslint compliant
-- Be SonarQube compliant
+- Be SonarQube compliant (no code smells, bugs, or vulnerabilities)
+- Use props as read-only data passed from parent to child components
 - Use TypeScript with proper typing
 - Follow the established file structure and naming conventions
 - Adhere to the design system and component patterns defined in the UI documentation
