@@ -28,6 +28,7 @@ IMPORTANT: Before generating any code, always first check the `/docs` directory 
 - /docs/data-fetching.md — Data fetching rules and patterns
 - /docs/data-mutations.md — Data mutation rules and Server Action patterns
 - /docs/auth.md — Authentication standards (Clerk)
+- /docs/routing.md — Routing structure, protection, and naming conventions
 
 ## Data Fetching
 
