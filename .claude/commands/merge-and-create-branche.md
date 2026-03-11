@@ -1,0 +1,1 @@
+Commit any changes in the current branch and provide a suitable message based on the code changes. then merge the current branch into the main branch and resolve any conflicts that may arise. After the merge is successful, create a new branch from the $1 branch called $2 and switch to it.
