@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Dumbbell } from "lucide-react";
 import { formatDate } from "@/lib/format-date";
@@ -53,7 +54,8 @@ export default async function DashboardPage({ searchParams }: DashboardPageProps
             workoutList.map((workout) => {
               const duration = parseDuration(workout.startedAt, workout.completedAt);
               return (
-                <Card key={workout.id} className="shadow-none">
+                <Card key={workout.id} className="shadow-none transition-colors hover:bg-zinc-50 dark:hover:bg-zinc-900">
+                  <Link href={`/dashboard/workout/${workout.id}`} className="block">
                   <CardHeader className="pb-1 pt-4">
                     <CardTitle className="text-base font-medium">
                       {workout.name ?? "Untitled Workout"}
@@ -65,6 +67,7 @@ export default async function DashboardPage({ searchParams }: DashboardPageProps
                       {duration ? ` · ${duration}` : ""}
                     </p>
                   </CardContent>
+                  </Link>
                 </Card>
               );
             })
