@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Dumbbell } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Dumbbell, Plus } from "lucide-react";
 import { formatDate } from "@/lib/format-date";
 import { getWorkoutsByUserAndDate } from "@/data/workouts";
 import { DatePicker } from "./DatePicker";
@@ -27,13 +28,21 @@ export default async function DashboardPage({ searchParams }: DashboardPageProps
   return (
     <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950 p-6">
       <div className="mx-auto max-w-2xl space-y-6">
-        <div>
-          <h1 className="text-2xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-50">
-            Dashboard
-          </h1>
-          <p className="text-sm text-zinc-500 dark:text-zinc-400">
-            View your workouts by date.
-          </p>
+        <div className="flex items-start justify-between">
+          <div>
+            <h1 className="text-2xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-50">
+              Dashboard
+            </h1>
+            <p className="text-sm text-zinc-500 dark:text-zinc-400">
+              View your workouts by date.
+            </p>
+          </div>
+          <Button asChild>
+            <Link href="/dashboard/workout/new">
+              <Plus className="h-4 w-4" />
+              Log New Workout
+            </Link>
+          </Button>
         </div>
 
         <DatePicker selected={date} />

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useTransition } from "react";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { Calendar } from "@/components/ui/calendar";
 import {
   Popover,
@@ -26,7 +26,6 @@ type Props = {
 };
 
 export function EditWorkoutForm({ workoutId, defaultName, defaultStartedAt }: Readonly<Props>) {
-  const router = useRouter();
   const [isPending, startTransition] = useTransition();
   const [errors, setErrors] = useState<UpdateWorkoutResult["error"]>({});
   const [date, setDate] = useState<Date>(
@@ -117,13 +116,8 @@ export function EditWorkoutForm({ workoutId, defaultName, defaultStartedAt }: Re
         <Button type="submit" disabled={isPending}>
           {isPending ? "Saving…" : "Save changes"}
         </Button>
-        <Button
-          type="button"
-          variant="outline"
-          disabled={isPending}
-          onClick={() => router.back()}
-        >
-          Cancel
+        <Button type="button" variant="outline" disabled={isPending} asChild>
+          <Link href="/dashboard">Cancel</Link>
         </Button>
       </div>
     </form>
