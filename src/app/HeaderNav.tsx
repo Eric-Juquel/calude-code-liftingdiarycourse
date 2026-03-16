@@ -1,20 +1,21 @@
 "use client";
 
 import { SignInButton, SignUpButton, Show, UserButton } from "@clerk/nextjs";
+import { Button } from "@/components/ui/button";
 
 export function HeaderNav() {
   return (
     <div className="flex items-center gap-3">
       <Show when="signed-out" fallback={<UserButton />}>
         <SignInButton mode="modal">
-          <button className="px-5 py-2 rounded-full border border-gray-500 text-sm font-medium text-gray-200 hover:border-gray-300 hover:text-white transition-all duration-200 cursor-pointer">
+          <Button variant="outline" className="rounded-full border-gray-500 bg-transparent text-gray-200 hover:bg-transparent hover:border-gray-300 hover:text-white">
             Sign In
-          </button>
+          </Button>
         </SignInButton>
         <SignUpButton mode="modal">
-          <button className="px-5 py-2 rounded-full bg-linear-to-r from-indigo-500 to-purple-600 text-sm font-medium text-white shadow-md hover:shadow-lg hover:from-indigo-600 hover:to-purple-700 active:scale-95 transition-all duration-200 cursor-pointer">
+          <Button className="rounded-full bg-linear-to-r from-indigo-500 to-purple-600 text-white shadow-md hover:shadow-lg hover:from-indigo-600 hover:to-purple-700 active:scale-95">
             Sign Up
-          </button>
+          </Button>
         </SignUpButton>
       </Show>
     </div>
